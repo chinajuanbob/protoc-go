@@ -36,4 +36,4 @@ RUN mkdir -p /go/src/github.com/google && \
 
 WORKDIR "/go/src/github.com/"
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-l", "-c"]
