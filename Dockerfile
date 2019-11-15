@@ -37,5 +37,3 @@ RUN mkdir -p /go/src/github.com/google && \
 WORKDIR "/go/src/github.com/"
 
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
-
-ENTRYPOINT ["/bin/bash", "-l", "-c"]
