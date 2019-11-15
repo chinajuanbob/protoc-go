@@ -34,6 +34,12 @@ RUN mkdir -p /go/src/github.com/google && \
     mv protoc-gen-grpc-web-$GRPC_WEB_VERSION-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web && \
     chmod +x /usr/local/bin/protoc-gen-grpc-web
 
+ENV DOCKER_VERSION 19.03.5
+RUN curl -O https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION.tgz \
+    && tar zxvf docker-$DOCKER_VERSION.tgz \
+    && cp docker/docker /usr/local/bin/ \
+    && rm -rf docker docker-$DOCKER_VERSION.tgz
+
 WORKDIR "/go/src/github.com/"
 
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
