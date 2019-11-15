@@ -2,7 +2,7 @@ FROM golang:1.13
 
 RUN apt-get update && \
     apt-get install -y unzip;
-    
+
 ENV GO111MODULE=on
 ENV PROTOC_VERSION 3.9.1
 ENV PROTOC_GEN_GO_VERSION v1.3.2
@@ -23,7 +23,7 @@ RUN go get -u github.com/golang/protobuf/protoc-gen-go@$PROTOC_GEN_GO_VERSION &&
     go get -u github.com/gogo/protobuf/protoc-gen-gogoslick && \
     go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc && \
     go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
-	go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
+    go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
     go get -u github.com/micro/protoc-gen-micro
 
 RUN mkdir -p /go/src/github.com/google && \
@@ -35,5 +35,7 @@ RUN mkdir -p /go/src/github.com/google && \
     chmod +x /usr/local/bin/protoc-gen-grpc-web
 
 WORKDIR "/go/src/github.com/"
+
+RUN echo "dash dash/sh boolean false" | debconf-set-selections
 
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
