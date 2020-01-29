@@ -1,9 +1,10 @@
-FROM golang:1.13
+FROM golang:stretch
 
 RUN apt-get update && \
     apt-get install -y unzip;
 
 ENV GO111MODULE=on
+ENV GOPROXY=goproxy.cn,goproxy.io,direct
 ENV PROTOC_VERSION 3.9.1
 ENV PROTOC_GEN_GO_VERSION v1.3.2
 ENV GRPC_WEB_VERSION 1.0.7
