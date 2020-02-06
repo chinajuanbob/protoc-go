@@ -24,7 +24,7 @@ RUN go get -u github.com/golang/protobuf/protoc-gen-go@$PROTOC_GEN_GO_VERSION &&
     go get -u github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc && \
     go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
     go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
-    go get -u github.com/micro/protoc-gen-micro
+    go get -u github.com/micro/protoc-gen-micro/v2
 
 RUN mkdir -p /go/src/github.com/google && \
     git clone --branch master https://github.com/google/protobuf /go/src/github.com/google/protobuf && \
